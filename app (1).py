@@ -1,3 +1,9 @@
+import subprocess, sys
+for pkg in ["plotly", "statsmodels", "scipy", "pymannkendall"]:
+    try:
+        __import__(pkg)
+    except ImportError:
+        subprocess.check_call([sys.executable, "-m", "pip", "install", pkg])
 import streamlit as st
 import pandas as pd
 import numpy as np
